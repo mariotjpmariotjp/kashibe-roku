@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>樫辺勒 公式ホームページ｜KASHIBE Roku Official</title>
+<meta name="description" content="文筆家・書籍編集者 樫辺勒（本名・片岡力）公式ホームページ。哲学、特撮、文学。小説『ホダニエレーガ』（仙台短編文学賞・河北新報社賞）著者。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Serif+JP:wght@300;400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbfaf6;--bg-2:#f1ece1;--bg-card:#fff;
+  --ink:#1c1814;--ink-2:#5a4f43;--ink-3:#8a7d6f;
+  --accent:#a3271a;--accent-2:#6e1a11;
+  --line:#ddd5c4;--line-soft:#ece6d8;
+  --shadow:0 1px 2px rgba(28,24,20,.04),0 12px 28px rgba(28,24,20,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Serif JP','Shippori Mincho B1',serif;color:var(--ink);background:var(--bg);
+  line-height:1.85;font-feature-settings:"palt" 1;-webkit-font-smoothing:antialiased;font-size:16px;
+}
+img{max-width:100%;display:block}
+a{color:var(--ink);text-decoration:none;transition:.2s color}
+a:hover{color:var(--accent)}
+
+/* ページ切替 */
+.page{display:none}
+.page.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ヘッダ */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(251,250,246,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+.header-inner{max-width:1200px;margin:0 auto;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:baseline;gap:14px;font-family:'Shippori Mincho B1',serif;cursor:pointer}
+.brand-name{font-size:1.15rem;font-weight:700;letter-spacing:.14em}
+.brand-yomi{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.78rem;color:var(--ink-3);letter-spacing:.25em}
+.gnav{display:flex;gap:30px;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.88rem;letter-spacing:.12em}
+.gnav a{position:relative;padding:6px 0;color:var(--ink-2)}
+.gnav a:hover{color:var(--ink)}
+.gnav a.active{color:var(--accent)}
+.gnav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--accent)}
+.header-sns{display:flex;gap:10px}
+.header-sns a{width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;color:var(--ink-2);transition:.2s}
+.header-sns a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.header-sns svg{width:15px;height:15px}
+
+/* ヒーロー */
+.hero{max-width:1200px;margin:0 auto;padding:80px 28px 100px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;min-height:72vh}
+.hero-text .eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;letter-spacing:.3em;color:var(--accent);margin-bottom:24px;display:inline-block;padding-bottom:4px;border-bottom:1px solid var(--accent)}
+.hero-text h1{font-family:'Shippori Mincho B1',serif;font-size:clamp(2.6rem,5.5vw,4.2rem);font-weight:800;letter-spacing:.1em;line-height:1.15;margin-bottom:16px}
+.hero-text h1 .accent{color:var(--accent)}
+.hero-text .yomi-en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;letter-spacing:.35em;color:var(--ink-3);margin-bottom:32px}
+.hero-text .lead{font-size:1.02rem;line-height:2;color:var(--ink-2);max-width:480px;margin-bottom:36px}
+.hero-cta{display:inline-flex;align-items:center;gap:14px;padding:14px 30px;background:var(--ink);color:var(--bg);font-family:'Zen Kaku Gothic New',sans-serif;font-size:.92rem;letter-spacing:.18em;border:0;border-radius:999px;cursor:pointer;transition:.2s}
+.hero-cta:hover{background:var(--accent);color:#fff}
+.hero-cta::after{content:"→";font-family:serif}
+.hero-photo{aspect-ratio:4/5;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.photo-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.75);font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:.3em;font-size:.9rem;background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.18) 0%,transparent 55%),linear-gradient(180deg,#d8c9aa 0%,#8c7c61 100%)}
+.photo-tag{position:absolute;left:24px;bottom:24px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;letter-spacing:.25em;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.35)}
+
+/* セクション */
+.section{max-width:1200px;margin:0 auto;padding:80px 28px}
+.section-narrow{max-width:920px}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:48px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.section-head .titles{display:flex;flex-direction:column;gap:6px}
+.section-head .label{font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:.3em;color:var(--accent);font-size:.85rem}
+.section-head h2{font-family:'Shippori Mincho B1',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;letter-spacing:.14em}
+.section-head .more{font-family:'Zen Kaku Gothic New',sans-serif;font-size:.85rem;letter-spacing:.15em;color:var(--ink-2);white-space:nowrap;align-self:end;cursor:pointer}
+.section-head .more:hover{color:var(--accent)}
+.section-head .more::after{content:" →"}
+
+/* 著作グリッド */
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 32px}
+.work-card{display:flex;flex-direction:column}
+.work-card .cover-wrap{aspect-ratio:3/4.3;margin-bottom:20px;position:relative;overflow:hidden;box-shadow:var(--shadow);transition:transform .3s}
+.work-card:hover .cover-wrap{transform:translateY(-4px)}
+.cover-placeholder{position:absolute;inset:0;background:linear-gradient(135deg,#2a1f15 0%,#4a3624 100%);color:#f0e7d3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px;font-family:'Shippori Mincho B1',serif}
+.cover-placeholder .cv-title{font-size:1.4rem;font-weight:700;letter-spacing:.15em;line-height:1.4;margin-bottom:14px}
+.cover-placeholder .cv-author{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.8rem;letter-spacing:.2em;opacity:.8}
+.cover-placeholder .cv-line{width:30px;height:1px;background:#f0e7d3;opacity:.5;margin:10px 0}
+.cv-badge{position:absolute;top:12px;left:12px;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.2em;background:var(--accent);color:#fff;padding:4px 10px}
+.work-meta-tag{font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;letter-spacing:.22em;color:var(--ink-3);margin-bottom:8px}
+.work-card h3{font-family:'Shippori Mincho B1',serif;font-size:1.15rem;letter-spacing:.08em;margin-bottom:8px;line-height:1.5}
+.work-card .work-sub{font-size:.85rem;color:var(--ink-2);margin-bottom:12px;line-height:1.7}
+.work-card .work-links{margin-top:auto;padding-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.work-card .work-links a{font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;letter-spacing:.12em;padding:5px 12px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2);transition:.2s}
+.work-card .work-links a:hover{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+
+/* 著作詳細 */
+.work-detail{display:grid;grid-template-columns:280px 1fr;gap:56px;padding:56px 0;border-top:1px solid var(--line)}
+.work-detail:first-child{border-top:0;padding-top:0}
+.work-detail .cover-wrap{margin-bottom:0;max-width:280px;aspect-ratio:3/4.3;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.work-detail h3{font-family:'Shippori Mincho B1',serif;font-size:1.7rem;letter-spacing:.1em;margin-bottom:10px;line-height:1.4}
+.work-detail .work-sub{font-size:.95rem;color:var(--ink-2);margin-bottom:24px;font-style:italic;line-height:1.7}
+.work-detail .work-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px 24px;margin-bottom:28px;padding:18px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);font-size:.85rem}
+.work-detail .work-info span{color:var(--ink-3)}
+.work-detail .work-info b{color:var(--ink);font-weight:500;margin-left:4px}
+.work-detail .work-desc{font-size:.98rem;line-height:2;margin-bottom:30px}
+
+/* 動画埋め込み */
+.video-embed{aspect-ratio:16/9;background:#0d0a07;position:relative;overflow:hidden;margin-bottom:18px;border-radius:4px}
+.video-embed iframe,.video-embed video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:rgba(240,231,211,.9);background:linear-gradient(135deg,#1a120a 0%,#0a0604 100%)}
+.video-placeholder .play-btn{width:68px;height:68px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;transition:.2s}
+.video-placeholder .play-btn::before{content:"";width:0;height:0;border:11px solid transparent;border-left:17px solid currentColor;margin-left:5px}
+.video-placeholder:hover .play-btn{background:var(--accent);border-color:var(--accent);color:#fff}
+.video-placeholder .label{font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;letter-spacing:.3em}
+.video-placeholder .note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.72rem;color:#b8a98b}
+
+/* 購入ボタン */
+.purchase-links{display:flex;flex-wrap:wrap;gap:10px}
+.purchase-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.85rem;letter-spacing:.12em;border:1px solid var(--ink);color:var(--ink);background:var(--bg);transition:.2s}
+.purchase-btn:hover{background:var(--ink);color:var(--bg)}
+.purchase-btn::after{content:"↗";font-size:.85em}
+.purchase-btn.amazon{border-color:#ff9900;color:#ff9900}
+.purchase-btn.amazon:hover{background:#ff9900;color:#fff;border-color:#ff9900}
+.purchase-btn.rakuten{border-color:#bf0000;color:#bf0000}
+.purchase-btn.rakuten:hover{background:#bf0000;color:#fff;border-color:#bf0000}
+
+/* お知らせ */
+.news-list{display:flex;flex-direction:column}
+.news-item{display:grid;grid-template-columns:130px 100px 1fr auto;gap:24px;padding:22px 0;border-bottom:1px solid var(--line-soft);align-items:baseline;transition:.2s}
+.news-item:hover{background:var(--bg-2);padding-left:12px;padding-right:12px}
+.news-item .date{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--ink-3);font-size:.95rem;letter-spacing:.08em}
+.news-item .cat{font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;letter-spacing:.2em;text-align:center;padding:4px 8px;border:1px solid var(--line);color:var(--ink-2)}
+.news-item .cat.event{border-color:var(--accent);color:var(--accent)}
+.news-item .cat.work{border-color:#5a4326;color:#5a4326}
+.news-item .title{font-size:1rem;line-height:1.6}
+.news-item .arrow{color:var(--ink-3);font-family:serif}
+
+/* エッセイカード */
+.essay-card{padding:36px 0;border-top:1px solid var(--line-soft)}
+.essay-card:first-of-type{border-top:1px solid var(--line)}
+.essay-meta{display:flex;gap:16px;align-items:center;margin-bottom:14px;font-size:.85rem;color:var(--ink-3);letter-spacing:.12em}
+.essay-meta .date{font-family:'Cormorant Garamond',serif;font-style:italic}
+.essay-meta .cat{font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;letter-spacing:.2em;padding:3px 10px;border:1px solid var(--line);color:var(--ink-2)}
+.essay-meta .cat.event{border-color:var(--accent);color:var(--accent)}
+.essay-meta .cat.work{border-color:#5a4326;color:#5a4326}
+.essay-card h3{font-family:'Shippori Mincho B1',serif;font-size:1.4rem;font-weight:700;letter-spacing:.06em;margin-bottom:14px;line-height:1.5}
+.essay-card h3 a{color:var(--ink)}
+.essay-card h3 a:hover{color:var(--accent)}
+.essay-card .body p{font-size:.98rem;line-height:2;margin-bottom:1em;color:var(--ink-2)}
+.essay-card .more-link{font-family:'Zen Kaku Gothic New',sans-serif;display:inline-block;font-size:.85rem;letter-spacing:.15em;color:var(--accent);margin-top:8px}
+
+/* プロフィール */
+.profile-layout{display:grid;grid-template-columns:320px 1fr;gap:64px;margin-bottom:64px;align-items:start}
+.profile-photo{aspect-ratio:4/5;background:linear-gradient(180deg,#d8c9aa 0%,#8c7c61 100%);position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.profile-photo .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:.3em;font-size:.85rem}
+.profile-body h1{font-family:'Shippori Mincho B1',serif;font-size:2.4rem;letter-spacing:.12em;margin-bottom:8px}
+.profile-body .yomi-line{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--ink-3);letter-spacing:.3em;margin-bottom:6px}
+.profile-body .honmyo{font-size:.9rem;color:var(--ink-2);margin-bottom:32px}
+.profile-body .lead{font-size:1.05rem;line-height:2;margin-bottom:28px;padding-left:20px;border-left:2px solid var(--accent)}
+.profile-body p{margin-bottom:1.4em}
+.timeline{margin-top:64px}
+.timeline h3{font-family:'Shippori Mincho B1',serif;font-size:1.4rem;letter-spacing:.15em;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.tl-item{display:grid;grid-template-columns:110px 1fr;gap:24px;padding:14px 0;border-bottom:1px solid var(--line-soft)}
+.tl-year{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--accent);font-size:1rem;letter-spacing:.08em}
+.tl-text{font-size:.95rem;line-height:1.8}
+
+/* コンタクト */
+.contact-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:60px}
+.contact-form{display:flex;flex-direction:column;gap:18px}
+.contact-form .field{display:flex;flex-direction:column;gap:6px}
+.contact-form label{font-family:'Zen Kaku Gothic New',sans-serif;font-size:.82rem;letter-spacing:.15em;color:var(--ink-2)}
+.contact-form input,.contact-form textarea,.contact-form select{width:100%;font-family:inherit;border:1px solid var(--line);background:var(--bg-card);padding:12px 14px;font-size:.95rem;color:var(--ink);border-radius:4px;transition:.2s}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(163,39,26,.08)}
+.contact-form button{font-family:'Zen Kaku Gothic New',sans-serif;letter-spacing:.25em;background:var(--ink);color:var(--bg);border:0;padding:16px 36px;font-size:.95rem;cursor:pointer;border-radius:999px;align-self:flex-start;margin-top:8px;transition:.2s}
+.contact-form button:hover{background:var(--accent)}
+.contact-side{display:flex;flex-direction:column;gap:28px}
+.contact-card{padding:28px;background:var(--bg-2);border-radius:8px}
+.contact-card h3{font-family:'Shippori Mincho B1',serif;font-size:1.1rem;letter-spacing:.12em;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.link-list{list-style:none}
+.link-list li{padding:10px 0;border-bottom:1px dotted var(--line);display:flex;justify-content:space-between;align-items:center;font-size:.9rem}
+.link-list li:last-child{border-bottom:0}
+.link-list small{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--ink-3);font-size:.85rem}
+.sns-row{display:flex;gap:10px;flex-wrap:wrap}
+.sns-btn{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border:1px solid var(--line);border-radius:999px;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.82rem;letter-spacing:.12em;color:var(--ink);background:var(--bg-card);transition:.2s}
+.sns-btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.sns-btn svg{width:14px;height:14px}
+
+/* SNS CTA */
+.cta-band{background:var(--bg-2);padding:72px 28px;margin-top:80px;text-align:center}
+.cta-band .label{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--accent);letter-spacing:.3em;font-size:.85rem;margin-bottom:14px}
+.cta-band h2{font-family:'Shippori Mincho B1',serif;font-size:clamp(1.6rem,3vw,2.1rem);letter-spacing:.14em;margin-bottom:32px}
+.cta-band .sns-row{justify-content:center}
+
+/* フッタ */
+.site-footer{background:var(--ink);color:#cfc4b3}
+.footer-inner{max-width:1200px;margin:0 auto;padding:60px 28px 30px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.site-footer h4{font-family:'Shippori Mincho B1',serif;font-size:.92rem;letter-spacing:.22em;margin-bottom:18px;color:#fff}
+.site-footer p,.site-footer a,.site-footer li{font-size:.85rem;line-height:1.95;color:#cfc4b3}
+.site-footer a:hover{color:#fff}
+.site-footer ul{list-style:none}
+.site-footer ul li{margin-bottom:6px}
+.footer-brand{font-family:'Shippori Mincho B1',serif;font-size:1.25rem;letter-spacing:.18em;margin-bottom:10px;color:#fff}
+.footer-brand-yomi{font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:.3em;font-size:.85rem;opacity:.7}
+.footer-sns{display:flex;gap:10px;margin-top:16px}
+.footer-sns a{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #4d4439;border-radius:50%;color:#cfc4b3;transition:.2s}
+.footer-sns a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.footer-sns svg{width:15px;height:15px}
+.footer-bottom{max-width:1200px;margin:0 auto;padding:20px 28px;border-top:1px solid #2e2820;display:flex;justify-content:space-between;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.78rem;color:#8a7d6f;letter-spacing:.15em}
+
+/* レスポンシブ */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;gap:48px;padding:48px 24px 64px;min-height:auto}
+  .hero-photo{max-width:420px}
+  .works-grid{grid-template-columns:repeat(2,1fr);gap:32px 20px}
+  .work-detail{grid-template-columns:1fr;gap:32px}
+  .work-detail .cover-wrap{max-width:260px}
+  .profile-layout{grid-template-columns:1fr;gap:36px}
+  .profile-photo{max-width:320px}
+  .contact-layout{grid-template-columns:1fr;gap:40px}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media (max-width:680px){
+  .gnav,.header-sns{display:none}
+  .header-inner{padding:14px 20px}
+  .section{padding:48px 20px}
+  .section-head{flex-direction:column;align-items:flex-start;gap:8px}
+  .hero-text h1{font-size:2.4rem}
+  .works-grid{grid-template-columns:1fr;gap:36px}
+  .work-card .cover-wrap{max-width:260px;margin-left:auto;margin-right:auto}
+  .news-item{grid-template-columns:1fr;gap:6px;padding:16px 0}
+  .news-item .cat{justify-self:start}
+  .news-item .arrow{display:none}
+  .footer-inner{grid-template-columns:1fr;gap:24px}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== ヘッダ ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#home" class="brand">
+      <span class="brand-name">樫辺　勒</span>
+      <span class="brand-yomi">KASHIBE ROKU</span>
+    </a>
+    <nav class="gnav">
+      <a href="#home">ホーム</a>
+      <a href="#profile">プロフィール</a>
+      <a href="#works">著作</a>
+      <a href="#news">お知らせ</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <div class="header-sns">
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21.5L14.3 10.3L22.7 22H16.2L11.1 15L5.4 22H2L9.7 13.1L1.7 2H8.4L13 8.4L18.2 2Z"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2c-.2-.9-.9-1.6-1.8-1.9C18.1 5 12 5 12 5s-6.1 0-7.8.4c-.9.2-1.6.9-1.9 1.8C2 8.9 2 12 2 12s0 3.1.4 4.8c.2.9.9 1.6 1.8 1.9C5.9 19 12 19 12 19s6.1 0 7.8-.4c.9-.2 1.6-.9 1.9-1.8.3-1.7.3-4.8.3-4.8s0-3.1-.4-4.8zM10 15V9l5 3-5 3z"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================ -->
+<!-- ===== ページ1: ホーム                     ===== -->
+<!-- ============================================ -->
+<div id="home" class="page active">
+
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">Editor &nbsp;／&nbsp; Writer</p>
+    <h1>樫辺<span class="accent">勒</span></h1>
+    <p class="yomi-en">KASHIBE ROKU</p>
+    <p class="lead">人文書の版元で十数年、編集卓に座しました。哲学、思想史、宗教、そして特撮。版元を辞して独り立ちしたのちも、机のうえに積まれる原稿は雑食をきわめます。書く側と編む側を往還しながら、いまも東京近郊の机に向かっています。</p>
+    <a href="#works" class="hero-cta">著作を見る</a>
+  </div>
+  <div class="hero-photo">
+    <div class="photo-placeholder">— Portrait —</div>
+    <div class="photo-tag">Kashibe Roku, 2026</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="titles"><span class="label">Featured Work</span><h2>最新作</h2></div>
+    <a href="#works" class="more">著作一覧へ</a>
+  </div>
+  <div class="work-detail">
+    <div class="cover-wrap">
+      <span class="cv-badge">受賞作</span>
+      <div class="cover-placeholder">
+        <div class="cv-title">ホダニ<br>エレーガ</div>
+        <div class="cv-line"></div>
+        <div class="cv-author">Kashibe Roku</div>
+      </div>
+    </div>
+    <div>
+      <p class="work-meta-tag">SHORT FICTION ／ 2023</p>
+      <h3>ホダニエレーガ</h3>
+      <p class="work-sub">第六回 仙台短編文学賞・河北新報社賞 受賞作</p>
+      <div class="work-info">
+        <span>掲載／<b>河北新報</b></span>
+        <span>受賞／<b>2023年4月</b></span>
+        <span>名義／<b>片岡 力</b></span>
+      </div>
+      <p class="work-desc">仙台・宮城・東北を題材にした短編に贈られる文学賞において、河北新報社賞を受賞。著者にとって出身地・宮城県塩竈の記憶と現在地が交叉する一作です。受賞作は『河北新報』紙面ならびにオンラインで全文公開されています。</p>
+      <div class="video-embed">
+        <div class="video-placeholder">
+          <div class="play-btn"></div>
+          <div class="label">著 者 解 説 ・ 朗 読</div>
+          <div class="note">— Video commentary will appear here —</div>
+        </div>
+      </div>
+      <div class="purchase-links">
+        <a href="https://www.kahoku.news/" target="_blank" rel="noopener" class="purchase-btn">河北新報で読む</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="titles"><span class="label">Works</span><h2>著作から</h2></div>
+    <a href="#works" class="more">すべての著作を見る</a>
+  </div>
+  <div class="works-grid">
+    <article class="work-card">
+      <div class="cover-wrap"><div class="cover-placeholder"><div class="cv-title">仮面ライダー<br>響鬼の事情</div><div class="cv-line"></div><div class="cv-author">Kashibe Roku</div></div></div>
+      <p class="work-meta-tag">NON-FICTION</p>
+      <h3>「仮面ライダー響鬼」の事情</h3>
+      <p class="work-sub">ヒーローはどう〈設定〉されたのか／五月書房</p>
+      <div class="work-links"><a href="#works">詳しく見る</a><a href="#" target="_blank" rel="noopener">Amazon</a><a href="#" target="_blank" rel="noopener">楽天</a></div>
+    </article>
+    <article class="work-card">
+      <div class="cover-wrap"><div class="cover-placeholder"><div class="cv-title">哲メン<br>図鑑</div><div class="cv-line"></div><div class="cv-author">Kashibe Roku</div></div></div>
+      <p class="work-meta-tag">PHILOSOPHY</p>
+      <h3>哲メン図鑑</h3>
+      <p class="work-sub">顔からわかる哲学史／五月書房</p>
+      <div class="work-links"><a href="#works">詳しく見る</a><a href="#" target="_blank" rel="noopener">Amazon</a><a href="#" target="_blank" rel="noopener">楽天</a></div>
+    </article>
+    <article class="work-card">
+      <div class="cover-wrap"><div class="cover-placeholder"><div class="cv-title">写真甲子園<br>0.5秒の夏</div><div class="cv-line"></div><div class="cv-author">Kashibe Roku</div></div></div>
+      <p class="work-meta-tag">NOVEL ／ 2017</p>
+      <h3>小説 写真甲子園 0.5秒の夏</h3>
+      <p class="work-sub">菅原浩志シナリオのノベライズ／新評論</p>
+      <div class="work-links"><a href="#works">詳しく見る</a><a href="#" target="_blank" rel="noopener">Amazon</a><a href="#" target="_blank" rel="noopener">楽天</a></div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="titles"><span class="label">News</span><h2>お知らせ</h2></div>
+    <a href="#news" class="more">お知らせ一覧</a>
+  </div>
+  <div class="news-list">
+    <a class="news-item" href="#news"><span class="date">2026.03.14</span><span class="cat event">告知</span><span class="title">某書店にて編集者・作家対談に登壇いたします（仮）</span><span class="arrow">→</span></a>
+    <a class="news-item" href="#news"><span class="date">2026.01.20</span><span class="cat work">執筆</span><span class="title">「設定」をめぐる思考──仮面ライダー響鬼の現場ノートに寄せて</span><span class="arrow">→</span></a>
+    <a class="news-item" href="#news"><span class="date">2025.11.05</span><span class="cat">随筆</span><span class="title">編集卓から見た哲学書という荒野（短期連載・第一回）</span><span class="arrow">→</span></a>
+  </div>
+</section>
+
+<section class="cta-band">
+  <p class="label">Follow / Support</p>
+  <h2>SNS・購入サイト</h2>
+  <div class="sns-row">
+    <a href="#" target="_blank" rel="noopener" class="sns-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+    <a href="#" target="_blank" rel="noopener" class="sns-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21.5L14.3 10.3L22.7 22H16.2L11.1 15L5.4 22H2L9.7 13.1L1.7 2H8.4L13 8.4L18.2 2Z"/></svg>X (旧Twitter)</a>
+    <a href="#" target="_blank" rel="noopener" class="sns-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2c-.2-.9-.9-1.6-1.8-1.9C18.1 5 12 5 12 5s-6.1 0-7.8.4c-.9.2-1.6.9-1.9 1.8C2 8.9 2 12 2 12s0 3.1.4 4.8c.2.9.9 1.6 1.8 1.9C5.9 19 12 19 12 19s6.1 0 7.8-.4c.9-.2 1.6-.9 1.9-1.8.3-1.7.3-4.8.3-4.8s0-3.1-.4-4.8zM10 15V9l5 3-5 3z"/></svg>YouTube</a>
+    <a href="#" target="_blank" rel="noopener" class="sns-btn">Amazon 著者ページ</a>
+    <a href="#" target="_blank" rel="noopener" class="sns-btn">楽天ブックス</a>
+  </div>
+</section>
+
+</div>
+
+<!-- ============================================ -->
+<!-- ===== ページ2: プロフィール               ===== -->
+<!-- ============================================ -->
+<div id="profile" class="page">
+
+<section class="section">
+  <div class="section-head">
+    <div class="titles"><span class="label">Profile</span><h2>プロフィール</h2></div>
+  </div>
+  <div class="profile-layout">
+    <div class="profile-photo"><div class="ph">— Portrait —</div></div>
+    <div class="profile-body">
+      <h1>樫辺　勒</h1>
+      <p class="yomi-line">KASHIBE ROKU</p>
+      <p class="honmyo">本名／片岡　力（Kataoka Chikara）</p>
+      <p class="lead">フリーランスの書籍編集者にして文筆家。サブカルチャーから人文書まで、ジャンルを跨いで「設定する人」「組み立てる人」として三十余年。書く側と編む側を往復しながら、いまも机に向かっています。</p>
+      <p>1961年、宮城県塩竈市に生まれる。人文書を主とする版元で長く編集者を務めたのち独立。哲学、思想史、宗教論、評伝といった重厚な書物の編集に携わる一方、特撮、人形劇、写真、音楽といったサブカルチャー領域でも企画・構成・編集を手がけてきました。</p>
+      <p>テレビ朝日系『仮面ライダー響鬼』（2005年）の文芸協力として番組初期の世界観・設定考証を担当。後年、その制作現場の実相を綴ったドキュメント『「仮面ライダー響鬼」の事情』（五月書房）を刊行しています。</p>
+      <p>2023年、小説「ホダニエレーガ」で第六回仙台短編文学賞・河北新報社賞を受賞（受賞名義は本名「片岡力」）。出身地・東北に根を張る文学賞での受賞は、長い往復のひとつの結節点となりました。</p>
+      <p>編集者として顔の表現を磨いてきた者が、自分の名前で書く。そうして生まれる小説や随筆は、対象との距離の取り方に独特のものがある──と、寄せられた書評はしばしば指摘します。</p>
+    </div>
+  </div>
+  <div class="timeline">
+    <h3>年　譜</h3>
+    <div class="tl-item"><span class="tl-year">1961</span><span class="tl-text">宮城県塩竈市に生まれる。</span></div>
+    <div class="tl-item"><span class="tl-year">19XX</span><span class="tl-text">人文書版元に編集者として入社（※詳細を後日加筆）。</span></div>
+    <div class="tl-item"><span class="tl-year">20XX</span><span class="tl-text">独立。フリーの書籍編集者・文筆家として活動を開始。</span></div>
+    <div class="tl-item"><span class="tl-year">2005</span><span class="tl-text">テレビ朝日系『仮面ライダー響鬼』に文芸協力として参加（第一〜二十九話）。世界観の設定考証等を担当。</span></div>
+    <div class="tl-item"><span class="tl-year">2013</span><span class="tl-text">『NHK連続人形劇 プリンプリン物語 メモリアル・ガイドブック』（河出書房新社）企画・構成・編集。</span></div>
+    <div class="tl-item"><span class="tl-year">2017</span><span class="tl-text">映画『写真甲子園 0.5秒の夏』のノベライズ小説『小説 写真甲子園 0.5秒の夏』（新評論）刊行。</span></div>
+    <div class="tl-item"><span class="tl-year">20XX</span><span class="tl-text">『「仮面ライダー響鬼」の事情』（五月書房）、『哲メン図鑑』（五月書房）刊行。</span></div>
+    <div class="tl-item"><span class="tl-year">20XX</span><span class="tl-text">私家版『幕末ラッパー』を発表。</span></div>
+    <div class="tl-item"><span class="tl-year">2023</span><span class="tl-text">小説「ホダニエレーガ」で第六回仙台短編文学賞・河北新報社賞を受賞。</span></div>
+  </div>
+  <div class="timeline">
+    <h3>仕事の領域</h3>
+    <div class="tl-item"><span class="tl-year">編　集</span><span class="tl-text">人文書（哲学・思想史・宗教・評伝）、サブカルチャー本（特撮・人形劇）、ビジュアル・ガイドブック等の企画・構成・編集。</span></div>
+    <div class="tl-item"><span class="tl-year">執　筆</span><span class="tl-text">小説、書評、評論、エッセイ。特撮、哲学、ポップカルチャー全般。</span></div>
+    <div class="tl-item"><span class="tl-year">設　定</span><span class="tl-text">テレビ番組・映像作品の設定考証、世界観構築の協力。</span></div>
+  </div>
+</section>
+
+</div>
+
+<!-- ============================================ -->
+<!-- ===== ページ3: 著作                       ===== -->
+<!-- ============================================ -->
+<div id="works" class="page">
+
+<section class="section">
+  <div class="section-head">
+    <div class="titles"><span class="label">Works &amp; Commentary</span><h2>著作一覧</h2></div>
+    <span class="more" style="color:var(--ink-3)">各書に著者による動画解説</span>
+  </div>
+  <p style="margin-bottom:56px;max-width:740px;line-height:1.95;color:var(--ink-2)">これまでに手がけた著書・編著書を、刊行年逆順で掲載しています。各書誌には、著者みずからによる音声・映像での解説を順次収録予定です。書影は順次差し替えていきます。</p>
+
+  <article class="work-detail">
+    <div class="cover-wrap">
+      <span class="cv-badge">受賞作</span>
+      <div class="cover-placeholder"><div class="cv-title">ホダニ<br>エレーガ</div><div class="cv-line"></div><div class="cv-author">Kashibe Roku</div></div>
+    </div>
+    <div>
+      <p class="work-meta-tag">SHORT FICTION ／ 2023</p>
+      <h3>ホダニエレーガ</h3>
+      <p class="work-sub">第六回 仙台短編文学賞・河北新報社賞 受賞作</p>
+      <div class="work-info"><span>掲載／<b>河北新報・河北新報オンライン</b></span><span>発表／<b>2023年</b></span><span>名義／<b>片岡 力</b></span></div>
+      <p class="work-desc">仙台・宮城・東北を題材にした短編に贈られる文学賞において、河北新報社賞を受賞した一篇。同回の大賞は高村峰生「あらゆる透明な」。受賞作は『河北新報』紙面およびオンラインで全文公開されています。</p>
+      <div class="video-embed"><div class="video-placeholder"><div class="play-btn"></div><div class="label">著 者 解 説</div><div class="note">— Video commentary will appear here —</div></div></div>
+      <div class="purchase-links"><a href="https://www.kahoku.news/" target="_blank" rel="noopener" class="purchase-btn">河北新報で読む</a></div>
+    </div>
+  </article>
+
+  <article class="work-detail">
+    <div class="cover-wrap"><div class="cover-placeholder"><div class="cv-title">仮面ライダー<br>響鬼の事情</div><div class="cv-line"></div><div class="cv-author">Kashibe Roku</div></div></div>
+    <div>
+      <p class="work-meta-tag">NON-FICTION</p>
+      <h3>「仮面ライダー響鬼」の事情</h3>
+      <p class="work-sub">ドキュメント　ヒーローはどう〈設定〉されたのか</p>
+      <div class="work-info"><span>版元／<b>五月書房</b></span><span>ジャンル／<b>特撮・制作論</b></span></div>
+      <p class="work-desc">自身が文芸協力として参加した『仮面ライダー響鬼』。番組初期の世界観構築から、制作中盤のスタッフ交代に至るまで、現場に立ち会った者だからこそ書きうるドキュメントとして編まれた一冊。「ヒーローはいかにして〈設定〉されるのか」という問いを、極力客観的な視点で検証します。</p>
+      <div class="video-embed"><div class="video-placeholder"><div class="play-btn"></div><div class="label">著 者 解 説</div><div class="note">— Video commentary will appear here —</div></div></div>
+      <div class="purchase-links"><a href="#" target="_blank" rel="noopener" class="purchase-btn amazon">Amazonで買う</a><a href="#" target="_blank" rel="noopener" class="purchase-btn rakuten">楽天ブックス</a><a href="https://gssinc.jp" target="_blank" rel="noopener" class="purchase-btn">版元サイト</a></div>
+    </div>
+  </article>
+
+  <article class="work-detail">
+    <div class="cover-wrap"><div class="cover-placeholder"><div class="cv-title">哲メン<br>図鑑</div><div class="cv-line"></div><div class="cv-author">Kashibe Roku</div></div></div>
+    <div>
+      <p class="work-meta-tag">PHILOSOPHY</p>
+      <h3>哲メン図鑑</h3>
+      <p class="work-sub">顔からわかる哲学史</p>
+      <div class="work-info"><span>版元／<b>五月書房</b></span><span>ジャンル／<b>哲学・思想史</b></span></div>
+      <p class="work-desc">古今東西の哲学者を「顔」という切り口から眺めなおす、ユニークな哲学史ガイド。深刻な哲学的問いを、思想家たちの容貌や肖像と地続きに語ることで、思想史を身近な物語として開きます。</p>
+      <div class="video-embed"><div class="video-placeholder"><div class="play-btn"></div><div class="label">著 者 解 説</div><div class="note">— Video commentary will appear here —</div></div></div>
+      <div class="purchase-links"><a href="#" target="_blank" rel="noopener" class="purchase-btn amazon">Amazonで買う</a><a href="#" target="_blank" rel="noopener" class="purchase-btn rakuten">楽天ブックス</a><a href="https://gssinc.jp" target="_blank" rel="noopener" class="purchase-btn">版元サイト</a></div>
+    </div>
+  </article>
+
+  <article class="work-detail">
+    <div class="cover-wrap"><div class="cover-placeholder"><div class="cv-title">写真甲子園<br>0.5秒の夏</div><div class="cv-line"></div><div class="cv-author">Kashibe Roku</div></div></div>
+    <div>
+      <p class="work-meta-tag">NOVEL ／ 2017</p>
+      <h3>小説 写真甲子園 0.5秒の夏</h3>
+      <p class="work-sub">シナリオ：菅原浩志（「ぼくらの七日間戦争」「ほたるの星」監督・脚本）</p>
+      <div class="work-info"><span>版元／<b>新評論</b></span><span>刊行／<b>2017年9月28日</b></span><span>判型／<b>四六判 240頁</b></span><span>定価／<b>1,760円</b></span></div>
+      <p class="work-desc">北海道東川町で開催される「全国高校生写真選手権大会」=写真甲子園を舞台にした映画『写真甲子園 0.5秒の夏』（菅原浩志監督）のノベライズ小説。映画では描かれなかった裏側、写真の評価をめぐる思考を、原作小説として書き下ろしました。</p>
+      <div class="video-embed"><div class="video-placeholder"><div class="play-btn"></div><div class="label">著 者 解 説</div><div class="note">— Video commentary will appear here —</div></div></div>
+      <div class="purchase-links"><a href="#" target="_blank" rel="noopener" class="purchase-btn amazon">Amazonで買う</a><a href="#" target="_blank" rel="noopener" class="purchase-btn rakuten">楽天ブックス</a><a href="https://www.shinhyoron.co.jp/" target="_blank" rel="noopener" class="purchase-btn">版元サイト</a></div>
+    </div>
+  </article>
+
+  <article class="work-detail">
+    <div class="cover-wrap"><div class="cover-placeholder"><div class="cv-title">プリンプリン<br>物語<br>メモリアル</div><div class="cv-line"></div><div class="cv-author">Edited by Kashibe</div></div></div>
+    <div>
+      <p class="work-meta-tag">EDITED ／ 2013</p>
+      <h3>NHK連続人形劇 プリンプリン物語 メモリアル・ガイドブック</h3>
+      <p class="work-sub">企画・構成・編集／樫辺 勒　著／友永詔三 ほか</p>
+      <div class="work-info"><span>発行／<b>河出書房新社</b></span><span>刊行／<b>2013年5月22日</b></span><span>判型／<b>A4判 160頁</b></span><span>定価／<b>2,900円＋税</b></span></div>
+      <p class="work-desc">NHK総合で全六五六回放送された伝説の連続人形劇『プリンプリン物語』唯一にして決定版のガイドブック。メインキャラから訪問各国のサブキャラまでカラービジュアル満載、台本に準拠した詳細なストーリー紹介を収めます。企画・構成・編集を担当。</p>
+      <div class="video-embed"><div class="video-placeholder"><div class="play-btn"></div><div class="label">編 者 解 説</div><div class="note">— Video commentary will appear here —</div></div></div>
+      <div class="purchase-links"><a href="#" target="_blank" rel="noopener" class="purchase-btn amazon">Amazonで買う</a><a href="#" target="_blank" rel="noopener" class="purchase-btn rakuten">楽天ブックス</a><a href="https://www.kawade.co.jp/" target="_blank" rel="noopener" class="purchase-btn">版元サイト</a></div>
+    </div>
+  </article>
+
+  <article class="work-detail">
+    <div class="cover-wrap"><span class="cv-badge" style="background:var(--ink-2)">私家版</span><div class="cover-placeholder"><div class="cv-title">幕末<br>ラッパー</div><div class="cv-line"></div><div class="cv-author">Kashibe Roku</div></div></div>
+    <div>
+      <p class="work-meta-tag">INDEPENDENT</p>
+      <h3>幕末ラッパー</h3>
+      <p class="work-sub">私家版</p>
+      <div class="work-info"><span>発行／<b>私家版</b></span></div>
+      <p class="work-desc">幕末という時代と「ラップ」というかたちを掛け合わせた、商業流通から離れたところで編まれた一冊。インディペンデントだからこそ可能な企てとして、限られた読者に向けて届けられました。</p>
+      <div class="video-embed"><div class="video-placeholder"><div class="play-btn"></div><div class="label">著 者 朗 読</div><div class="note">— Audio / Video will appear here —</div></div></div>
+      <div class="purchase-links"><a href="#contact" class="purchase-btn">お問い合わせ</a></div>
+    </div>
+  </article>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="titles"><span class="label">Television &amp; Film</span><h2>映像への寄与</h2></div>
+    <span class="more" style="color:var(--ink-3)">設定考証ほか</span>
+  </div>
+  <div class="news-list">
+    <div class="news-item"><span class="date">2005–2006</span><span class="cat work">特撮</span><span class="title">テレビ朝日系『仮面ライダー響鬼』文芸協力（第一〜二十九話／本名「片岡力」名義）</span><span class="arrow"></span></div>
+  </div>
+</section>
+
+</div>
+
+<!-- ============================================ -->
+<!-- ===== ページ4: お知らせ                   ===== -->
+<!-- ============================================ -->
+<div id="news" class="page">
+
+<section class="section section-narrow">
+  <div class="section-head">
+    <div class="titles"><span class="label">News &amp; Essays</span><h2>お知らせ・寄稿録</h2></div>
+    <span class="more" style="color:var(--ink-3)">2026年 春</span>
+  </div>
+
+  <article class="essay-card">
+    <div class="essay-meta"><span class="date">2026.03.14</span><span class="cat event">告知</span></div>
+    <h3><a href="#">某書店にて編集者・作家対談に登壇いたします（仮）</a></h3>
+    <div class="body"><p>来る某月某日、都内の独立系書店にて、若手編集者との対談イベントに登壇する運びとなりました。話題は、サブカルチャー領域の本づくりについて。詳細は確定し次第、本欄でお知らせいたします。</p><a href="#" class="more-link">続きを読む →</a></div>
+  </article>
+
+  <article class="essay-card">
+    <div class="essay-meta"><span class="date">2026.01.20</span><span class="cat work">執筆</span></div>
+    <h3><a href="#">「設定」をめぐる思考──仮面ライダー響鬼の現場ノートに寄せて</a></h3>
+    <div class="body"><p>ヒーロー番組における「設定」とは何か。世界観と物語の関係はいかに整えられ、ときにいかに崩れるか。『「仮面ライダー響鬼」の事情』では極力客観的な視点で語ろうと努めましたが、書ききれなかった論点も多くあります。本稿では、設定という営みそれ自体について、ふたたび考えてみたいと思います。</p><a href="#" class="more-link">続きを読む →</a></div>
+  </article>
+
+  <article class="essay-card">
+    <div class="essay-meta"><span class="date">2025.11.05</span><span class="cat">随筆</span></div>
+    <h3><a href="#">編集卓から見た哲学書という荒野（短期連載・第一回）</a></h3>
+    <div class="body"><p>哲学書を編むとは、どういう営みなのか。著者の頭の中の構造を、読者にとって扉のついた家屋に翻訳する作業──と書けば耳ざわりはよいが、実情はもっと汗くさいものです。本連載では、編集卓のうえで起きていた小さな攻防を、いくつか記録しておきたいと思います。</p><a href="#" class="more-link">続きを読む →</a></div>
+  </article>
+
+  <article class="essay-card">
+    <div class="essay-meta"><span class="date">2025.06.10</span><span class="cat">書評</span></div>
+    <h3><a href="#">塩竈の海と本──故郷から見る出版という遠さ</a></h3>
+    <div class="body"><p>仙台短編文学賞・河北新報社賞をいただいたことで、長く離れていた故郷についてあらためて書く機会が増えました。塩竈の海と、自分が編んできた本の間にある距離について、ひとつのスケッチを試みます。</p><a href="#" class="more-link">続きを読む →</a></div>
+  </article>
+
+  <article class="essay-card">
+    <div class="essay-meta"><span class="date">2025.04.02</span><span class="cat event">登壇</span></div>
+    <h3><a href="#">トークイベント開催の記録：写真甲子園とノベライズの距離</a></h3>
+    <div class="body"><p>映画『写真甲子園 0.5秒の夏』の劇場公開時に行われた、菅原浩志監督との対談から数年──ノベライズという仕事の難しさと愉しさについて、再考の機会をいただきました。当日の記録の一部を、許可を得て公開します。</p><a href="#" class="more-link">続きを読む →</a></div>
+  </article>
+</section>
+
+</div>
+
+<!-- ============================================ -->
+<!-- ===== ページ5: お問い合わせ               ===== -->
+<!-- ============================================ -->
+<div id="contact" class="page">
+
+<section class="section">
+  <div class="section-head">
+    <div class="titles"><span class="label">Contact &amp; Commission</span><h2>お問い合わせ</h2></div>
+  </div>
+  <p style="max-width:740px;line-height:1.95;margin-bottom:48px;color:var(--ink-2)">原稿・編集・対談・登壇のご依頼、また著作についてのご感想・ご質問は、下記フォームよりお寄せください。お返事には少々お時間をいただく場合がございます。</p>
+  <div class="contact-layout">
+    <form class="contact-form" action="#" method="post" onsubmit="alert('※ 本フォームはデモです。送信先のメール／フォームサービスに合わせて設定してください。'); return false;">
+      <div class="field"><label for="name">お名前</label><input id="name" type="text" name="name" required></div>
+      <div class="field"><label for="email">メールアドレス</label><input id="email" type="email" name="email" required></div>
+      <div class="field"><label for="kind">ご用件の種別</label><select id="kind" name="kind"><option>執筆のご依頼</option><option>編集のご依頼</option><option>対談・登壇のご依頼</option><option>取材のご依頼</option><option>著作についてのご感想</option><option>その他</option></select></div>
+      <div class="field"><label for="msg">ご用件</label><textarea id="msg" name="msg" rows="7" required></textarea></div>
+      <button type="submit">送信する</button>
+    </form>
+    <aside class="contact-side">
+      <div class="contact-card">
+        <h3>SNS</h3>
+        <div class="sns-row">
+          <a href="#" target="_blank" rel="noopener" class="sns-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+          <a href="#" target="_blank" rel="noopener" class="sns-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21.5L14.3 10.3L22.7 22H16.2L11.1 15L5.4 22H2L9.7 13.1L1.7 2H8.4L13 8.4L18.2 2Z"/></svg>X (旧Twitter)</a>
+          <a href="#" target="_blank" rel="noopener" class="sns-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2c-.2-.9-.9-1.6-1.8-1.9C18.1 5 12 5 12 5s-6.1 0-7.8.4c-.9.2-1.6.9-1.9 1.8C2 8.9 2 12 2 12s0 3.1.4 4.8c.2.9.9 1.6 1.8 1.9C5.9 19 12 19 12 19s6.1 0 7.8-.4c.9-.2 1.6-.9 1.9-1.8.3-1.7.3-4.8.3-4.8s0-3.1-.4-4.8zM10 15V9l5 3-5 3z"/></svg>YouTube</a>
+          <a href="#" target="_blank" rel="noopener" class="sns-btn">note</a>
+          <a href="#" target="_blank" rel="noopener" class="sns-btn">Bluesky</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3>購入サイト</h3>
+        <ul class="link-list">
+          <li><span>Amazon 著者ページ</span><small><a href="#" target="_blank" rel="noopener">開く ↗</a></small></li>
+          <li><span>楽天ブックス</span><small><a href="#" target="_blank" rel="noopener">開く ↗</a></small></li>
+          <li><span>honto</span><small><a href="#" target="_blank" rel="noopener">開く ↗</a></small></li>
+        </ul>
+      </div>
+      <div class="contact-card">
+        <h3>出版社</h3>
+        <ul class="link-list">
+          <li><span>五月書房新社</span><small><a href="https://gssinc.jp" target="_blank" rel="noopener">gssinc.jp ↗</a></small></li>
+          <li><span>新評論</span><small><a href="https://www.shinhyoron.co.jp/" target="_blank" rel="noopener">shinhyoron.co.jp ↗</a></small></li>
+          <li><span>河出書房新社</span><small><a href="https://www.kawade.co.jp/" target="_blank" rel="noopener">kawade.co.jp ↗</a></small></li>
+          <li><span>仙台短編文学賞</span><small><a href="https://sendaitanpenbungak.wixsite.com/award" target="_blank" rel="noopener">公式 ↗</a></small></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <p style="margin-top:60px;padding-top:24px;border-top:1px dotted var(--line);color:var(--ink-3);font-size:.85rem;letter-spacing:.08em">※ 営業・宣伝・商業出版以外の販売目的のご連絡には、原則としてお応えしておりません。何卒ご了承ください。</p>
+</section>
+
+</div>
+
+<!-- ===== フッタ ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <p class="footer-brand">樫辺　勒</p>
+      <p class="footer-brand-yomi">KASHIBE ROKU</p>
+      <p style="margin-top:14px">本名：片岡　力（かたおか・ちから）<br>一九六一年、宮城県塩竈市生まれ。<br>フリーランス書籍編集者／文筆家。</p>
+      <div class="footer-sns">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21.5L14.3 10.3L22.7 22H16.2L11.1 15L5.4 22H2L9.7 13.1L1.7 2H8.4L13 8.4L18.2 2Z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2c-.2-.9-.9-1.6-1.8-1.9C18.1 5 12 5 12 5s-6.1 0-7.8.4c-.9.2-1.6.9-1.9 1.8C2 8.9 2 12 2 12s0 3.1.4 4.8c.2.9.9 1.6 1.8 1.9C5.9 19 12 19 12 19s6.1 0 7.8-.4c.9-.2 1.6-.9 1.9-1.8.3-1.7.3-4.8.3-4.8s0-3.1-.4-4.8zM10 15V9l5 3-5 3z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>サイトメニュー</h4>
+      <ul>
+        <li><a href="#home">ホーム</a></li>
+        <li><a href="#profile">プロフィール</a></li>
+        <li><a href="#works">著作</a></li>
+        <li><a href="#news">お知らせ</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>購入</h4>
+      <ul>
+        <li><a href="#" target="_blank" rel="noopener">Amazon 著者ページ</a></li>
+        <li><a href="#" target="_blank" rel="noopener">楽天ブックス</a></li>
+        <li><a href="#" target="_blank" rel="noopener">honto</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>出版社</h4>
+      <ul>
+        <li><a href="https://gssinc.jp" target="_blank" rel="noopener">五月書房新社</a></li>
+        <li><a href="https://www.shinhyoron.co.jp/" target="_blank" rel="noopener">新評論</a></li>
+        <li><a href="https://www.kawade.co.jp/" target="_blank" rel="noopener">河出書房新社</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Kashibe Roku — All Rights Reserved.</span>
+    <span>Single-file preview</span>
+  </div>
+</footer>
+
+<script>
+function switchPage(){
+  var hash = (location.hash || '#home').slice(1);
+  var pages = document.querySelectorAll('.page');
+  var found = false;
+  pages.forEach(function(p){
+    if(p.id === hash){p.classList.add('active'); found = true;}
+    else{p.classList.remove('active');}
+  });
+  if(!found){document.getElementById('home').classList.add('active');}
+  document.querySelectorAll('.gnav a').forEach(function(a){
+    a.classList.toggle('active', a.getAttribute('href') === '#' + hash);
+  });
+  window.scrollTo(0,0);
+}
+window.addEventListener('hashchange', switchPage);
+window.addEventListener('load', switchPage);
+</script>
+
+</body>
+</html>

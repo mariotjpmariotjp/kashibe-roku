@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>樫辺勒 公式サイト デザイン案｜KASHIBE Roku</title>
+<meta name="description" content="樫辺勒 公式サイトのデザイン案。文学版とポップ版の2パターンからお選びください。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Serif+JP:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;1,300;1,400&family=Reggae+One&family=Zen+Maru+Gothic:wght@500;700;900&family=Lilita+One&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Noto Serif JP',serif;overflow-x:hidden}
+
+/* 上部のヘッダ帯 */
+.topline{
+  position:fixed;top:0;left:0;right:0;z-index:10;
+  padding:18px 28px;text-align:center;
+  background:rgba(255,255,255,.72);backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.topline h1{
+  font-family:'Shippori Mincho B1',serif;
+  font-size:1.15rem;letter-spacing:.22em;color:#1a1814;font-weight:700;
+}
+.topline .sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.78rem;color:#888;letter-spacing:.28em;margin-top:4px;
+}
+
+/* 2分割エリア */
+.versions{display:grid;grid-template-columns:1fr 1fr;height:100vh}
+
+.version{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-decoration:none;color:inherit;padding:80px 40px;
+  transition:flex-grow .4s,filter .3s;
+  position:relative;overflow:hidden;
+}
+.version:hover{flex-grow:1.08}
+.version:not(:hover){filter:saturate(.9)}
+
+/* 文学版 */
+.v-literary{
+  background:#fbfaf6;
+  background-image:
+    radial-gradient(rgba(60,40,20,.05) 1px,transparent 1px),
+    radial-gradient(rgba(60,40,20,.03) 1px,transparent 1px);
+  background-size:24px 24px,7px 7px;background-position:0 0,3px 3px;
+}
+.v-literary .label{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  color:#a3271a;letter-spacing:.35em;font-size:.85rem;
+  margin-bottom:20px;padding-bottom:4px;border-bottom:1px solid #a3271a;
+}
+.v-literary h2{
+  font-family:'Shippori Mincho B1',serif;
+  font-size:clamp(2.4rem,5vw,3.4rem);color:#1c1814;letter-spacing:.18em;
+  margin-bottom:14px;font-weight:800;
+}
+.v-literary .sub-line{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1rem;color:#8a7d6f;letter-spacing:.35em;margin-bottom:32px;
+}
+.v-literary .desc{
+  font-family:'Noto Serif JP',serif;
+  font-size:.93rem;line-height:2;color:#5a4f43;
+  text-align:center;max-width:340px;margin-bottom:40px;
+}
+.v-literary .enter{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  letter-spacing:.3em;color:#1c1814;
+  border-bottom:1px solid #1c1814;padding-bottom:4px;font-size:1rem;
+  transition:.2s;
+}
+.v-literary:hover .enter{color:#a3271a;border-bottom-color:#a3271a}
+
+/* ポップ版 */
+.v-pop{
+  background:#fff5d6;
+  background-image:radial-gradient(circle,rgba(26,26,46,.08) 1.2px,transparent 1.2px);
+  background-size:24px 24px;
+}
+.v-pop::before{
+  content:"";position:absolute;top:120px;right:-50px;
+  width:180px;height:180px;background:#3ed1b8;border-radius:50%;opacity:.5;
+}
+.v-pop::after{
+  content:"";position:absolute;bottom:80px;left:-50px;
+  width:140px;height:140px;background:#ff4d4d;border-radius:50%;opacity:.4;
+}
+.v-pop > *{position:relative;z-index:1}
+.v-pop .label{
+  background:#1a1a2e;color:#ffd23f;
+  font-family:'Lilita One',sans-serif;
+  letter-spacing:.2em;font-size:.82rem;
+  padding:6px 18px;border-radius:999px;margin-bottom:20px;
+  transform:rotate(-2deg);
+}
+.v-pop h2{
+  font-family:'Reggae One',sans-serif;
+  font-size:clamp(2.4rem,5vw,3.4rem);color:#1a1a2e;letter-spacing:.04em;margin-bottom:14px;
+}
+.v-pop h2 .ac{color:#ff4d4d;display:inline-block;transform:rotate(4deg)}
+.v-pop .sub-line{
+  font-family:'Lilita One',sans-serif;
+  font-size:1rem;color:#ff4d4d;letter-spacing:.25em;margin-bottom:32px;
+}
+.v-pop .desc{
+  font-family:'Zen Maru Gothic',sans-serif;font-weight:500;
+  font-size:.93rem;line-height:1.95;color:#5a5a72;
+  text-align:center;max-width:340px;margin-bottom:40px;
+}
+.v-pop .enter{
+  font-family:'Zen Maru Gothic',sans-serif;font-weight:900;letter-spacing:.18em;
+  padding:13px 30px;background:#ff4d4d;color:#fff;
+  border:3px solid #1a1a2e;border-radius:999px;
+  box-shadow:4px 4px 0 #1a1a2e;font-size:.92rem;transition:.15s;
+}
+.v-pop:hover .enter{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #1a1a2e;background:#ffd23f;color:#1a1a2e}
+
+/* フッタ的な小さい注記 */
+.footer-note{
+  position:fixed;bottom:0;left:0;right:0;z-index:10;
+  padding:10px 28px;text-align:center;
+  background:rgba(0,0,0,.5);color:#fff;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.75rem;letter-spacing:.2em;
+}
+
+/* レスポンシブ */
+@media (max-width:760px){
+  body{overflow-y:auto;height:auto}
+  .versions{grid-template-columns:1fr;height:auto}
+  .version{min-height:90vh;padding:120px 30px 80px}
+  .version:hover{flex-grow:1}
+  .topline{position:sticky;padding:14px 20px}
+  .topline h1{font-size:1rem;letter-spacing:.15em}
+  .footer-note{position:static}
+}
+</style>
+</head>
+<body>
+
+<div class="topline">
+  <h1>樫 辺 　 勒　／　KASHIBE　ROKU</h1>
+  <p class="sub">Choose a design ／ デザイン案 2 パターン</p>
+</div>
+
+<div class="versions">
+  <a href="literary.html" class="version v-literary">
+    <p class="label">EDITION 01</p>
+    <h2>文 学 版</h2>
+    <p class="sub-line">Literary Edition</p>
+    <p class="desc">明朝・朱の差し色・余白を生かした、文芸出版社のような端正な佇まい。落ち着いた印象を出したい場合に。</p>
+    <p class="enter">→&nbsp; ENTER</p>
+  </a>
+  <a href="pop.html" class="version v-pop">
+    <p class="label">EDITION 02</p>
+    <h2>ポップ<span class="ac">版</span></h2>
+    <p class="sub-line">Pop Edition</p>
+    <p class="desc">丸ゴシック・カラーブロック・ステッカーのような遊び。明るく親しみのある印象を出したい場合に。</p>
+    <p class="enter">→&nbsp; ENTER</p>
+  </a>
+</div>
+
+<div class="footer-note">design draft &nbsp;／&nbsp; preview only</div>
+
+</body>
+</html>
